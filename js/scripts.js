@@ -30,25 +30,25 @@ $(document).ready(function() {
   function getResult() {
     if(cSharp >= javaScript && cSharp >= python) {
       $("#quizResult").text("You should learn C#!");
-      $("#resultLogo").prop("src", "img/C-Sharp.png");
+      $("#resultLogo").prop("src", "img/C-Sharp.png").prop("alt", "C Sharp logo");
       $("#endOfQuiz").show();
     } else if(javaScript >= cSharp && javaScript >= python) {
       $("#quizResult").text("You should learn javascript!");
-      $("#resultLogo").prop("src", "img/javascript.png");
+      $("#resultLogo").prop("src", "img/javascript.png").prop("alt", "Unnofficial Javascript logo");
       $("#endOfQuiz").show();
     } else if(python >= javaScript && python >= cSharp) {
       $("#quizResult").text("You should learn python!");
-      $("#resultLogo").prop("src", "img/python.png");
+      $("#resultLogo").prop("src", "img/python.png").prop("alt", "Python logo");
       $("#endOfQuiz").show();
     }
   }
 
-  $("form#quiz").submit(function() {
+  $("form.form-group").submit(function() {
     // Set questions, possible answers. Get, record and clear previous answers
     question++;
     if(question == 1) {
       $("#button").val("Next Question");
-      $(".radio").show();
+      $(".form-check").show();
       questionText = "What do you plan to make?";
       answer1 = "Bots I can control from my phone!";
       answer2 = "A website with many functions!";
@@ -86,7 +86,7 @@ $(document).ready(function() {
       $("#answer2").text(answer2);
       $("#answer3").text(answer3);
     } else if (question == (totalQuestions + 1)) {
-      $(".radio").hide();
+      $(".form-check").hide();
       $("#button").val("Start Over");
       getAnswer();
       getResult();

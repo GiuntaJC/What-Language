@@ -2,11 +2,16 @@
   text-align: center;
 }
 
-.radio {
+.form-check {
   display: none;
 }
 
-#endOfQuiza {
+#endOfQuiz {
   display: none;
-  color: red;
+  font-weight: bold;
+}
+
+img {
+  width: 20%;
+  height: 20%;
 }
