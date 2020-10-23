@@ -41,6 +41,7 @@ $(document).ready(function() {
       $("#resultLogo").prop("src", "img/python.png").prop("alt", "Python logo");
       $("#endOfQuiz").show();
     }
+    $("#button").css("margin-left", "10%").css("margin-top", "10%");
   }
 
   $("form.form-group").submit(function() {

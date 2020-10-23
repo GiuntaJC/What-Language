@@ -1,5 +1,6 @@
 .jumbotron {
   text-align: center;
+  background-color: lightcyan;
 }
 
 .form-check {
@@ -9,8 +10,9 @@
 #endOfQuiz {
   display: none;
   font-weight: bold;
+  text-align: center;
+  float: left;
 }
-
 img {
   width: 20%;
   height: 20%;
