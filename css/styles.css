@@ -1,6 +1,10 @@
+body {
+  background-color: #232137;
+  color: goldenrod;
+}
 .jumbotron {
   text-align: center;
-  background-color: lightcyan;
+  background-color: #383283;
 }
 
 .form-check {
@@ -12,7 +16,9 @@
   font-weight: bold;
   text-align: center;
   float: left;
+  background-color:#383283
 }
+
 img {
   width: 20%;
   height: 20%;
