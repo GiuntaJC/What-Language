@@ -1,17 +1,32 @@
 $(document).ready(function() {
-  let currentQuestion = "You shouldn't see this! If you do, it's a bug and you should report it!";
-  let answer1 = "You shouldn't see this! If you do, it's a bug and you should report it!";
-  let answer2 = "You shouldn't see this! If you do, it's a bug and you should report it!";
-  let answer3 = "You shouldn't see this! If you do, it's a bug and you should report it!";
-  let answer4 = "You shouldn't see this! If you do, it's a bug and you should report it!";
+  // Declare string variables and default bug alert variable
+  const bugAlert = "This text should not appear! If it does, it's a bug and should be reported!"
+  let questionText = bugAlert;
+  let answer1 = bugAlert;
+  let answer2 = bugAlert;
+  let answer3 = bugAlert;
+  let answer4 = bugAlert;
+  // declare int variables
+  let question = 0;
+  let cSharp = 0;
+  let javaScript = 0;
+  let python = 0;
 
-  let cSharp;
-  let javaScript;
-  let python;
+  $("form#quiz").submit(function() {
+    $("#button").val("Next Question");
+    question++;
+    console.log(question);
+    if(question === 1) {
+      $(".radio").show();
+      questionText = "This is the first question";
+    } else if(question === 2) {
+      questionText = "This is the second question";
+    }
 
-  $("#currentQuestion").text(currentQuestion);
-  $("#answer1").text(answer1);
-  $("#answer2").text(answer2);
-  $("#answer3").text(answer3);
-  $("#answer4").text(answer4);
+    // Show and set text if on a question
+    if(question > 0) {
+      $("#questionText").text(questionText);
+    }
+    event.preventDefault();
+  });
 });
