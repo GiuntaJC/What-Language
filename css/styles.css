@@ -5,3 +5,8 @@
 .radio {
   display: none;
 }
+
+#endOfQuizText {
+  display: none;
+  color: red;
+}
