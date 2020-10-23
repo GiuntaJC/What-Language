@@ -14,55 +14,61 @@ $(document).ready(function() {
   let python = 0;
 
   function getAnswer() {
-    checkedAnswer = parseInt($("input:radio[name=question]:checked").val());
-    console.log(checkedAnswer); // DEBUG CODE
-  
-    if(checkedAnswer === 1) {
-      console.log("Answer 1");
+    checkedAnswer = $("input:radio[name=question]:checked").val();
+    if(checkedAnswer == 1) {
       cSharp++;
       $("input:radio[name=question]:checked").prop("checked", false);
-    } else if(checkedAnswer === 2) {
-      console.log("Answer 2");
+    } else if(checkedAnswer == 2) {
       javaScript++;
       $("input:radio[name=question]:checked").prop("checked", false);
-    } else if(checkedAnswer === 3) {
-      console.log("Answer 3");
+    } else if(checkedAnswer == 3) {
       python++;
       $("input:radio[name=question]:checked").prop("checked", false);
     } 
   }
 
-  $("form#quiz").submit(function() {
-    question++;
-    console.log(question); // DEBUG CODE
+  function getResult() {
+    if(cSharp >= javaScript && cSharp >= python) {
+      $("#quizResult").text("You should learn C#!");
+      $("#endOfQuizText").show();
+    } else if(javaScript >= cSharp && javaScript >= python) {
+      $("#quizResult").text("You should learn javascript!");
+      $("#endOfQuizText").show();
+    } else if(python >= javaScript && python >= cSharp) {
+      $("#quizResult").text("You should learn python!");
+      $("#endOfQuizText").show();
+    }
+  }
 
-    // Set questions and possible answers
-    if(question === 1) {
+  $("form#quiz").submit(function() {
+    // Set questions, possible answers. Get, record and clear previous answers
+    question++;
+    if(question == 1) {
       $("#button").val("Next Question");
       $(".radio").show();
       questionText = "This is the first question";
       answer1 = "This is the first answer";
       answer2 = "This is the second answer";
       answer3 = "This is the third answer";
-    } else if(question === 2) {
+    } else if(question == 2) {
       getAnswer();
       questionText = "This is the second question";
       answer1 = "This is the first answer";
       answer2 = "This is the second answer";
       answer3 = "This is the third answer";
-    } else if(question === 3) {
+    } else if(question == 3) {
       getAnswer();
       questionText = "This is the third question";
       answer1 = "This is the first answer";
       answer2 = "This is the second answer";
       answer3 = "This is the third answer";
-    } else if(question === 4) {
+    } else if(question == 4) {
       getAnswer();
       questionText = "This is the fourth question";
       answer1 = "This is the first answer";
       answer2 = "This is the second answer";
       answer3 = "This is the third answer";
-    } else if(question === 5) {
+    } else if(question == 5) {
       getAnswer();
       questionText = "This is the fifth question";
       answer1 = "This is the first answer";
@@ -76,11 +82,11 @@ $(document).ready(function() {
       $("#answer1").text(answer1);
       $("#answer2").text(answer2);
       $("#answer3").text(answer3);
-    } else if (question === (totalQuestions + 1)) {
+    } else if (question == (totalQuestions + 1)) {
       getAnswer();
       $(".radio").hide();
       $("#button").val("Start Over");
-      $("#endOfQuizText").show();
+      getResult();
       console.log("cSharp has " + cSharp);
       console.log("JS has " + javaScript);
       console.log("Python has " + python);
