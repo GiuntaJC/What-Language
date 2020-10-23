@@ -1,4 +1,4 @@
-# Programmign Language Suggester
+# Programming Language Suggester
 ## Week 2 Independent Project for Epicodus, 10.23.2020
 ## By Joseph C Giunta
 # About This Project
