@@ -3,6 +3,7 @@ $(document).ready(function() {
   const totalQuestions = 5;   // This var is handled by the if statements for determining when the quiz should end and loop. It exists so it is easier to add/remove questions
   
   // Declare the variables the quiz will use to choose questions, answers and result
+  let name = "";
   let questionText = bugAlert;
   let checkedAnswer = 0;
   let answer1 = bugAlert;
@@ -29,15 +30,15 @@ $(document).ready(function() {
 
   function getResult() {
     if(cSharp >= javaScript && cSharp >= python) {
-      $("#quizResult").text("You should learn C#!");
+      $("#quizResult").text("you should learn C#!");
       $("#resultLogo").prop("src", "img/C-Sharp.png").prop("alt", "C Sharp logo");
       $("#endOfQuiz").show();
     } else if(javaScript >= cSharp && javaScript >= python) {
-      $("#quizResult").text("You should learn javascript!");
+      $("#quizResult").text("you should learn javascript!");
       $("#resultLogo").prop("src", "img/javascript.png").prop("alt", "Unnofficial Javascript logo");
       $("#endOfQuiz").show();
     } else if(python >= javaScript && python >= cSharp) {
-      $("#quizResult").text("You should learn python!");
+      $("#quizResult").text("you should learn python!");
       $("#resultLogo").prop("src", "img/python.png").prop("alt", "Python logo");
       $("#endOfQuiz").show();
     }
@@ -47,6 +48,9 @@ $(document).ready(function() {
   $("form.form-group").submit(function() {
     if($("input:radio[name=question]").is(":checked") || question == 0 || question == (totalQuestions + 1)) {
       // Set questions, possible answers. Get, record and clear previous answers
+      $("#notChecked").hide();
+      $("#nameBox").hide();
+      name = $("input#nameInput").val();
       question++;
       if(question == 1) {
         $("#button").val("Next Question");
@@ -90,11 +94,14 @@ $(document).ready(function() {
       } else if (question == (totalQuestions + 1)) {
         $(".form-check").hide();
         $("#button").val("Start Over");
+        $("#nameText").text(name);
         getAnswer();
         getResult();
       } else if (question > (totalQuestions + 1)) { 
         $("#button").val("Start Quiz");
         $("#endOfQuiz").hide();
+        $("#nameBox").show();
+        $("#button").css("margin-left", "0%").css("margin-top", "0%");
         questionText = bugAlert;
         checkedAnswer = 0;
         answer1 = bugAlert;
@@ -106,7 +113,7 @@ $(document).ready(function() {
         python = 0;
       }
     } else {
-      console.log("not checked");
+      $("#notChecked").show();
     }
     event.preventDefault();
   });

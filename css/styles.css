@@ -19,6 +19,11 @@ body {
   background-color:#383283
 }
 
+#notChecked {
+  color: red;
+  display: none;
+}
+
 img {
   width: 20%;
   height: 20%;

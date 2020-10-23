@@ -15,6 +15,13 @@
     </div>
 
     <form class="form-group">
+      <div id="nameBox" class="form-group">
+        <label for="nameInput">What is your name?</label>
+        <input id="nameInput" class="form-control" type="text">
+      </div>
+    </form>
+
+    <form class="form-group">
       <div class="form-check">
         <p><span id="questionText"></span></p>
         <label>
@@ -37,9 +44,10 @@
       <div id="endOfQuiz" class="card" style="width: 20rem;">
         <img id= "resultLogo" class="card-img-top">
         <div class="card-body">
-          <p class="card-text"><span id="quizResult"></span></p>
+          <p class="card-text"><span id="nameText"></span>, <span id="quizResult"></span></p>
         </div>
       </div> <br>
+      <p id="notChecked">Please select an answer!</p>
       <input id="button" type="submit" value="Start Quiz">
     </form>
   </div>
