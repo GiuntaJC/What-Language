@@ -46,34 +46,34 @@ $(document).ready(function() {
     if(question == 1) {
       $("#button").val("Next Question");
       $(".radio").show();
-      questionText = "This is the first question";
-      answer1 = "This is the first answer";
-      answer2 = "This is the second answer";
-      answer3 = "This is the third answer";
+      questionText = "What do you plan to make?";
+      answer1 = "Bots I can control from my phone!";
+      answer2 = "A website with many functions!";
+      answer3 = "Data analysis scripts!";
     } else if(question == 2) {
       getAnswer();
       questionText = "This is the second question";
-      answer1 = "This is the first answer";
-      answer2 = "This is the second answer";
-      answer3 = "This is the third answer";
+      answer1 = "And this is the first answer!";
+      answer2 = "You sure about that?";
+      answer3 = "Why?";
     } else if(question == 3) {
       getAnswer();
-      questionText = "This is the third question";
-      answer1 = "This is the first answer";
-      answer2 = "This is the second answer";
-      answer3 = "This is the third answer";
+      questionText = "What Is the Airspeed Velocity of an Unladen Swallow?";
+      answer1 = "African or European?";
+      answer2 = "You have proved yourself worthy! Will you join me?";
+      answer3 = "Roughly 11 meters per second";
     } else if(question == 4) {
       getAnswer();
-      questionText = "This is the fourth question";
-      answer1 = "This is the first answer";
-      answer2 = "This is the second answer";
-      answer3 = "This is the third answer";
+      questionText = "Which of these colors do you like the most?";
+      answer1 = "Purple";
+      answer2 = "Yellow";
+      answer3 = "Blue";
     } else if(question == 5) {
       getAnswer();
-      questionText = "This is the fifth question";
-      answer1 = "This is the first answer";
-      answer2 = "This is the second answer";
-      answer3 = "This is the third answer";
+      questionText = "Lorem ipsum dolor sit amet?";
+      answer1 = "Phasellus finibus velit enim";
+      answer2 = "Laudate solem!";
+      answer3 = "Praesent non tortor dui";
     }
 
     // Show and set text if on a question, hide and reset if not
@@ -83,13 +83,10 @@ $(document).ready(function() {
       $("#answer2").text(answer2);
       $("#answer3").text(answer3);
     } else if (question == (totalQuestions + 1)) {
-      getAnswer();
       $(".radio").hide();
       $("#button").val("Start Over");
+      getAnswer();
       getResult();
-      console.log("cSharp has " + cSharp);
-      console.log("JS has " + javaScript);
-      console.log("Python has " + python);
     } else if (question > (totalQuestions + 1)) { 
       $("#button").val("Start Quiz");
       $("#endOfQuizText").hide();
