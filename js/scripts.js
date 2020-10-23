@@ -12,7 +12,7 @@ $(document).ready(function() {
   let cSharp = 0;
   let javaScript = 0;
   let python = 0;
-
+  
   function getAnswer() {
     checkedAnswer = $("input:radio[name=question]:checked").val();
     if(checkedAnswer == 1) {
@@ -24,19 +24,22 @@ $(document).ready(function() {
     } else if(checkedAnswer == 3) {
       python++;
       $("input:radio[name=question]:checked").prop("checked", false);
-    } 
+    }
   }
 
   function getResult() {
     if(cSharp >= javaScript && cSharp >= python) {
       $("#quizResult").text("You should learn C#!");
-      $("#endOfQuizText").show();
+      $("#resultLogo").prop("src", "img/C-Sharp.png");
+      $("#endOfQuiz").show();
     } else if(javaScript >= cSharp && javaScript >= python) {
       $("#quizResult").text("You should learn javascript!");
-      $("#endOfQuizText").show();
+      $("#resultLogo").prop("src", "img/javascript.png");
+      $("#endOfQuiz").show();
     } else if(python >= javaScript && python >= cSharp) {
       $("#quizResult").text("You should learn python!");
-      $("#endOfQuizText").show();
+      $("#resultLogo").prop("src", "img/python.png");
+      $("#endOfQuiz").show();
     }
   }
 
@@ -72,11 +75,11 @@ $(document).ready(function() {
       getAnswer();
       questionText = "Lorem ipsum dolor sit amet?";
       answer1 = "Phasellus finibus velit enim";
-      answer2 = "Laudate solem!";
+      answer2 = "Laudate solem! \\o/";
       answer3 = "Praesent non tortor dui";
     }
 
-    // Show and set text if on a question, hide and reset if not
+    // Show and set text if on a question, hide if not, and reset if starting over
     if(question > 0 && question < (totalQuestions + 1)) {
       $("#questionText").text(questionText);
       $("#answer1").text(answer1);
@@ -89,7 +92,7 @@ $(document).ready(function() {
       getResult();
     } else if (question > (totalQuestions + 1)) { 
       $("#button").val("Start Quiz");
-      $("#endOfQuizText").hide();
+      $("#endOfQuiz").hide();
       questionText = bugAlert;
       checkedAnswer = 0;
       answer1 = bugAlert;
