@@ -1,9 +1,13 @@
+import {hello} from js/functions.mjs;
+
 $(document).ready(function() {
+  hello();
   const bugAlert = "This text should not appear! If it does, it's a bug and should be reported!"
   const totalQuestions = 5;   // This var is handled by the if statements for determining when the quiz should end and loop. It exists so it is easier to add/remove questions
   
   // Declare the variables the quiz will use to choose questions, answers and result
   let questionText = bugAlert;
+  let checkedAnswer = 0;
   let answer1 = bugAlert;
   let answer2 = bugAlert;
   let answer3 = bugAlert;
@@ -11,6 +15,15 @@ $(document).ready(function() {
   let cSharp = 0;
   let javaScript = 0;
   let python = 0;
+
+  function getAnswer() {
+    checkedAnswer = $("input:radio[name=question]:checked").val();
+    console.log(checkedAnswer); // DEBUG CODE
+
+    if() {
+
+    }
+  }
 
   $("form#quiz").submit(function() {
     question++;
@@ -46,10 +59,15 @@ $(document).ready(function() {
       answer3 = "This is the third answer";
     }
 
-    // Get answer
-    /*if() {
+    // Get and record answer
+   /* if(question > 1) {
+      checkedAnswer = $("input:radio[name=question]:checked").val();
+      console.log(checkedAnswer); // DEBUG CODE
+      if(checkedAnswer === 1) {
 
-    }*/
+      }
+
+    } */
 
     // Show and set text if on a question, hide and reset if not
     if(question > 0 && question < (totalQuestions + 1)) {
@@ -61,6 +79,9 @@ $(document).ready(function() {
       $(".radio").hide();
       $("#button").val("Start Over");
       $("#endOfQuizText").show();
+      console.log("cSharp has " + cSharp);
+      console.log("JS has " + javaScript);
+      console.log("Python has " + python);
     } else if (question > (totalQuestions + 1)) { 
       $("#button").val("Start Quiz");
       $("#endOfQuizText").hide();
@@ -69,6 +90,7 @@ $(document).ready(function() {
       answer2 = bugAlert;
       answer3 = bugAlert;
       question = 0;
+      checkedAnswer = 0;
       cSharp = 0;
       javaScript = 0;
       python = 0;
